@@ -1,0 +1,13 @@
+@import "style-reset.css";
+
+html {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+  margin: 8px;
+}
+
+.results td {
+  min-width: 10em;
+}

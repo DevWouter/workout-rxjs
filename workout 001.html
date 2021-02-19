@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="https://unpkg.com/@highlightjs/cdn-assets@10.5.0/styles/default.min.css">
+  <script src="https://unpkg.com/@highlightjs/cdn-assets@10.5.0/highlight.min.js"></script>
+  <link rel="stylesheet" href="style.css">
+
+  <script src="https://unpkg.com/@reactivex/rxjs@6.6.3/dist/global/rxjs.umd.js"></script>
+  <script src="helper.js"></script>
+
+</head>
+
+<body>
+  <h1>Workout 001 - Intro</h1>
+  <article>
+    <div class="results">
+      <table class="results">
+        <tr>
+          <th>Expected</th>
+          <th>Actual</th>
+        </tr>
+        <tr>
+          <td><samp id="expected">good</samp></td>
+          <td><samp id="actual"></samp></td>
+        </tr>
+      </table>
+    </div>
+    <h2>Instructions</h2>
+    <ol>
+      <li>Open the file on your disk</li>
+      <li>Look for the workarea-script</li>
+      <li>Finish the missing part of the framework (the comments will always tell you where you need "FIX").</li>
+      <li>Reload the page</li>
+      <li>If the "expected result" matches the "actual result" then go to the next exercise. If it remains empy</li>
+    </ol>
+  </article>
+</body>
+
+<script id="workarea">
+  /***************************************************************
+   * `of` is a function that creates an subject
+   **************************************************************/
+  const { of } = rxjs;
+
+  /***************************************************************
+   * We place a `$` behind an variable if it's an observable. 
+   * It's not required (you can name it anything), but it makes 
+   * code easier to read.
+   **************************************************************/
+  const src$ = of("bad");     // <<-- 🛠🛠🛠 FIX THIS LINE 🛠🛠🛠
+
+  /***************************************************************
+   * Finally we "subscribe" to an observable.
+   * The function `output` only set the value in "actual result"
+   **************************************************************/
+  src$.subscribe(value => output(`${value}`));
+</script>
+
+</html>

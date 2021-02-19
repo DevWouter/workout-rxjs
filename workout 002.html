@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="https://unpkg.com/@highlightjs/cdn-assets@10.5.0/styles/default.min.css">
+  <script src="https://unpkg.com/@highlightjs/cdn-assets@10.5.0/highlight.min.js"></script>
+  <link rel="stylesheet" href="style.css">
+
+  <script src="https://unpkg.com/@reactivex/rxjs@6.6.3/dist/global/rxjs.umd.js"></script>
+  <script src="helper.js"></script>
+
+</head>
+
+<body>
+  <h1>Workout 002 - Mapping</h1>
+  <article>
+    <div class="results">
+      <table class="results">
+        <tr>
+          <th>Expected</th>
+          <th>Actual</th>
+        </tr>
+        <tr>
+          <td><samp id="expected">12</samp></td>
+          <td><samp id="actual"></samp></td>
+        </tr>
+      </table>
+    </div>
+    <p></p>
+  </article>
+</body>
+
+<script id="workarea">
+  /***************************************************************
+   * `map` is a function that "maps" one value to another
+   **************************************************************/
+  const { of } = rxjs;
+  const { map } = rxjs.operators;
+
+  const src$ = of(6);
+
+  /***************************************************************
+   * The pipe is a function that accepts zero or more "operators".
+   * For now we only provide one operation: We map the input value. 
+   **************************************************************/
+  src$.pipe(
+    map(value => value * 4),  // <<-- 🛠🛠🛠 FIX THIS LINE 🛠🛠🛠
+  ).subscribe(value => output(`${value}`));
+</script>
+
+</html>
